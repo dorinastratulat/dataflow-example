@@ -16,7 +16,7 @@ mvn archetype:generate \
 2. Run Java main from Maven:
 
 mvn compile exec:java -e \
--Dexec.mainClass=com.click.example.StarterPipeline \
+-Dexec.mainClass=com.simple.example.StarterPipeline \
 -Dexec.args="--project=dataflow-test-227715 \
 --stagingLocation=gs://example-dataflow-stage/staging/ \
 --tempLocation=gs://example-dataflow-stage/temp/ \
@@ -26,7 +26,7 @@ mvn compile exec:java -e \
 source set_variables.sh
 
 3. Crete CS Bucket 
-    gsutil mb gs://dataflow-utility-bucket
+    gsutil mb gs://${TEMP_GCS_BUCKET}
 
 4. Create Service Account / Key
 
@@ -51,7 +51,7 @@ gcloud iam service-accounts create $DATAFLOW_SERVICE_ACCOUNT_NAME \
  
  
  mvn compile exec:java -e \
- -Dexec.mainClass=com.click.example.StarterPipeline \
+ -Dexec.mainClass=com.simple.example.StarterPipeline \
  -Dexec.args="--project=${PROJECT_ID} \
  --stagingLocation=gs://${TEMP_GCS_BUCKET}/staging/ \
  --tempLocation=gs://${TEMP_GCS_BUCKET}/temp/ \
@@ -66,7 +66,7 @@ gcloud auth activate-service-account ${DATAFLOW_SERVICE_ACCOUNT_EMAIL} \
  --project=${PROJECT_ID}
  
  mvn compile exec:java -e \
-  -Dexec.mainClass=com.click.example.StarterPipeline \
+  -Dexec.mainClass=com.simple.example.StarterPipeline \
   -Dexec.args="--project=${PROJECT_ID} \
   --stagingLocation=gs://${TEMP_GCS_BUCKET}/staging/ \
   --tempLocation=gs://${TEMP_GCS_BUCKET}/temp/ \
@@ -76,3 +76,11 @@ To go back as your user:
 
 gcloud config set account dorina.stratulatt@gmail.com
 
+
+6. Run Grep
+mvn compile exec:java -e \
+  -Dexec.mainClass=com.simple.example.Grep \
+  -Dexec.args="--project=${PROJECT_ID} \
+  --stagingLocation=gs://${TEMP_GCS_BUCKET}/staging/ \
+  --tempLocation=gs://${TEMP_GCS_BUCKET}/temp/ \
+  --runner=DataflowRunner"

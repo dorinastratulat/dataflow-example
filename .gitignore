@@ -21,8 +21,11 @@ runners/**/vendor/**/*
 
 **/dependency-reduced-pom.xml
 **/target/**/*
-# Ignore sensitive informations
-./service-account-key.json
+
+# Ignore sensitive informations (Not working !!!)
+**/myfiles/**/*
+
+
 # Ignore generated archetypes
 sdks/java/maven-archetypes/examples/src/main/resources/archetype-resources/src/
 sdks/java/maven-archetypes/examples-java8/src/main/resources/archetype-resources/src/
