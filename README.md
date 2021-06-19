@@ -46,7 +46,7 @@ gcloud iam service-accounts create $DATAFLOW_SERVICE_ACCOUNT_NAME \
  --iam-account="${DATAFLOW_SERVICE_ACCOUNT_EMAIL}"
  
  5. Run
- Note: you run as: account = dorina.stratulatt@gmail.com
+ Note: you run as: account = your user
  
  
  
