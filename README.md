@@ -79,8 +79,6 @@ gcloud config set account <your user account>
 
 6. Run Grep
 mvn compile exec:java -e \
-  -Dexec.mainClass=com.simple.example.Grep \
-  -Dexec.args="--project=${PROJECT_ID} \
-  --stagingLocation=gs://${TEMP_GCS_BUCKET}/staging/ \
-  --tempLocation=gs://${TEMP_GCS_BUCKET}/temp/ \
-  --runner=DataflowRunner"
+  -Dexec.mainClass=com.simple.example.Grep 
+
+

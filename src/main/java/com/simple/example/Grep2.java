@@ -24,20 +24,20 @@ import org.apache.beam.sdk.transforms.ParDo;
 
 /**
  * A dataflow pipeline that prints the lines that match a specific search term
- * It is running locally
  *
  * Run:
- *      mvn compile exec:java -e   -Dexec.mainClass=com.simple.example.Grep
+ *      ./run_Grep2.sh $PROJECT_ID $TEMP_GCS_BUCKET Grep2
  *
  */
-public class Grep {
+
+public class Grep2 {
     @SuppressWarnings("serial")
     public static void main(String[] args) {
         PipelineOptions options = PipelineOptionsFactory.fromArgs(args).withValidation().create();
         Pipeline p = Pipeline.create(options);
 
-        String input = "src/main/java/com/simple/example/*.java";
-        String outputPrefix = "output";
+        String input = "gs://sample-pipelines-bucket/javafiles/*.java";
+        String outputPrefix = "gs://sample-pipelines-bucket/output";
         final String searchTerm = "import";
 
         p //
@@ -57,3 +57,4 @@ public class Grep {
     }
 
 }
+
