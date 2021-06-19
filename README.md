@@ -33,8 +33,8 @@ source set_variables.sh
 - create Service Account:
 gcloud iam service-accounts create $DATAFLOW_SERVICE_ACCOUNT_NAME \
 --project="${PROJECT_ID}" \
---description="Service Account for simple Dataflow pipeline" \
---display-name="Simple dataflow pipeline" \
+--description="Service Account for sample pipelines" \
+--display-name="sample pipelines" 
 
 - add role owner to the newly created Service Account
  gcloud projects add-iam-policy-binding ${PROJECT_ID} \
@@ -42,7 +42,7 @@ gcloud iam service-accounts create $DATAFLOW_SERVICE_ACCOUNT_NAME \
  --role=roles/owner
  
  - create and download the key
- gcloud iam service-accounts keys create service-account-key.json \
+ gcloud iam service-accounts keys create samplepipelines-key.json \
  --iam-account="${DATAFLOW_SERVICE_ACCOUNT_EMAIL}"
  
  5. Run
