@@ -46,7 +46,7 @@ gcloud iam service-accounts create $DATAFLOW_SERVICE_ACCOUNT_NAME \
  --iam-account="${DATAFLOW_SERVICE_ACCOUNT_EMAIL}"
  
  5. Run
- Note: you run as: account = your user
+ Note: you run as: account = your user account
  
  
  
@@ -74,7 +74,7 @@ gcloud auth activate-service-account ${DATAFLOW_SERVICE_ACCOUNT_EMAIL} \
   
 To go back as your user:
 
-gcloud config set account dorina.stratulatt@gmail.com
+gcloud config set account <your user account>
 
 
 6. Run Grep
